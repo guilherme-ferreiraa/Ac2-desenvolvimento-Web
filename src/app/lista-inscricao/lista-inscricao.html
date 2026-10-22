@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Lista de Inscrições</h2>
+
+ 
+  <div class="contadores">
+    <p><strong>Total:</strong> {{ inscricaoService.getTotal() }}</p>
+    <p><strong>Confirmadas:</strong> {{ inscricaoService.getConfirmadas() }}</p>
+    <p><strong>Pendentes:</strong> {{ inscricaoService.getPendentes() }}</p>
+  </div>
+
+  <hr />
+
+  @if (inscricoes.length === 0) {
+    <p>Nenhuma inscrição cadastrada</p>
+  } @else {
+    <ul>
+      @for (item of inscricoes; track item.id) {
+        <li>
+          <span>
+            <strong>{{ item.nome }}</strong> ({{ item.email }}) - 
+            Oficina: {{ item.oficina }} | 
+            Status: 
+            <span [ngClass]="item.confirmada ? 'status-confirmada' : 'status-pendente'">
+              {{ item.confirmada ? 'Confirmada' : 'Pendente' }}
+            </span>
+          </span>
+
+
+          <button 
+            class="btn-verde" 
+            [disabled]="item.confirmada" 
+            (click)="confirmar(item.id)">
+            Confirmar inscrição
+          </button>
+
+          
+          <button 
+            class="btn-laranja" 
+            (click)="remover(item.id)">
+            Remover
+          </button>
+        </li>
+      }
+    </ul>
+  }
+
+  <br />
+  <a routerLink="/cadastrar">Voltar ao Cadastro</a>
+</div>

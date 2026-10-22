@@ -1,0 +1,45 @@
+
+.btn-verde {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.btn-verde:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.btn-laranja {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+/* Amarelo de pendente */
+.status-pendente {
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.status-confirmada {
+  background-color: lightgreen;
+  color: darkgreen;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+li {
+  margin-bottom: 10px;
+}
