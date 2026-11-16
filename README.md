@@ -1,59 +1,79 @@
-# Ac2
+# Sistema de Inscrição em Oficinas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+Aplicação web desenvolvida com Angular para cadastrar e acompanhar inscrições em oficinas. É possível registrar participantes, visualizar as inscrições, confirmar ou remover cada registro e consultar os totais por status.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- Cadastro de participante com nome, e-mail e oficina.
+- Lista de inscrições com status confirmado ou pendente.
+- Confirmação de inscrições pendentes.
+- Remoção de inscrições.
+- Contadores de inscrições totais, confirmadas e pendentes.
+- Navegação entre as telas de cadastro e listagem.
 
-```bash
-ng serve
+As oficinas disponíveis são Desenvolvimento Angular, Lógica de Programação e Banco de Dados SQL.
+
+## Tecnologias
+
+- Angular 22
+- TypeScript
+- FormsModule e Angular Router
+- Vitest para testes
+
+## Pré-requisitos
+
+- Node.js em uma versão compatível com Angular 22.
+- npm.
+
+## Como executar
+
+1. Clone o repositório e entre na pasta do projeto:
+
+   ```bash
+   git clone https://github.com/guilherme-ferreiraa/Ac2-desenvolvimento-Web.git
+   cd Ac2-desenvolvimento-Web
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm start
+   ```
+
+4. Acesse [http://localhost:4200](http://localhost:4200).
+
+A aplicação abre na tela de cadastro. Após cadastrar uma inscrição, você será direcionado para a lista.
+
+## Scripts disponíveis
+
+| Comando | Descrição |
+| --- | --- |
+| `npm start` | Inicia o servidor de desenvolvimento Angular. |
+| `npm run build` | Compila a aplicação para produção. |
+| `npm run watch` | Recompila a aplicação automaticamente ao detectar alterações. |
+| `npm test` | Executa os testes com Vitest. |
+
+## Estrutura do projeto
+
+```text
+src/
+├── app/
+│   ├── cadastrar-inscricao/   # Formulário de cadastro
+│   ├── lista-inscricao/       # Listagem, confirmação e remoção
+│   ├── models/                # Modelo de inscrição
+│   ├── app.routes.ts          # Rotas da aplicação
+│   └── inscricao-service.ts   # Gerenciamento das inscrições
+├── index.html
+├── main.ts
+└── styles.css
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Persistência dos dados
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+As inscrições são mantidas em memória pelo serviço Angular e não são salvas em um banco de dados. Por isso, os dados são perdidos ao recarregar ou fechar a aplicação.
